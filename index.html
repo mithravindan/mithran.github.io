@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: blue;
+      background-color: lightblue; /* Changed to light blue */
       overflow: hidden;
     }
 
@@ -19,31 +19,36 @@
       color: red;
     }
 
-    @keyframes dvdMove {
+    @keyframes crossMove {
       0% {
         top: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
       }
       25% {
-        top: 0;
-        left: calc(100% - 150px);
+        top: 50%;
+        left: 100%;
+        transform: translateX(-100%);
       }
       50% {
-        top: calc(100% - 50px);
-        left: calc(100% - 150px);
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
       }
       75% {
-        top: calc(100% - 50px);
-        left: 0;
+        top: 50%;
+        left: 0%;
+        transform: translateX(0%);
       }
       100% {
-        top: 0;
-        left: 0;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
     #name {
-      animation: dvdMove 5s infinite linear;
+      animation: crossMove 10s infinite linear; /* Slower speed */
     }
   </style>
 </head>
