@@ -8,16 +8,15 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: lightblue;
+      background-color: lightblue; /* Light blue background */
       overflow: hidden;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     #name {
       position: absolute;
+      top: 50%; /* Start near the center */
+      transform: translateY(-50%); /* Center vertically */
       font-size: 48px;
       font-weight: bold;
       color: red;
@@ -30,25 +29,23 @@
   <script>
     const nameElement = document.getElementById("name");
     const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
 
-    function getRandomPosition() {
-      const x = Math.random() * (screenWidth - nameElement.offsetWidth);
-      const y = Math.random() * (screenHeight - nameElement.offsetHeight);
-      return { x, y };
+    function getRandomX() {
+      return Math.random() * (screenWidth - nameElement.offsetWidth);
     }
 
-    function moveRandomly() {
-      const { x, y } = getRandomPosition();
+    function slideRandomly() {
+      const x = getRandomX();
+      nameElement.style.transition = "left 2s"; // Smooth sliding effect
       nameElement.style.left = `${x}px`;
-      nameElement.style.top = `${y}px`;
     }
 
-    // Set initial random position
-    moveRandomly();
+    // Initial position
+    nameElement.style.left = "0px";
 
-    // Move the name every 1.5 seconds
-    setInterval(moveRandomly, 1500);
+    // Move to random positions horizontally every 2 seconds
+    setInterval(slideRandomly, 2000);
   </script>
 </body>
 </html>
+
