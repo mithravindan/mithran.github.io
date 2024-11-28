@@ -8,8 +8,12 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: lightblue; /* Changed to light blue */
+      background-color: lightblue;
       overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #name {
@@ -18,41 +22,33 @@
       font-weight: bold;
       color: red;
     }
-
-    @keyframes crossMove {
-      0% {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      25% {
-        top: 50%;
-        left: 100%;
-        transform: translateX(-100%);
-      }
-      50% {
-        top: 100%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-      }
-      75% {
-        top: 50%;
-        left: 0%;
-        transform: translateX(0%);
-      }
-      100% {
-        top: 0%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-
-    #name {
-      animation: crossMove 10s infinite linear; /* Slower speed */
-    }
   </style>
 </head>
 <body>
   <div id="name">Mithran</div>
+
+  <script>
+    const nameElement = document.getElementById("name");
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    function getRandomPosition() {
+      const x = Math.random() * (screenWidth - nameElement.offsetWidth);
+      const y = Math.random() * (screenHeight - nameElement.offsetHeight);
+      return { x, y };
+    }
+
+    function moveRandomly() {
+      const { x, y } = getRandomPosition();
+      nameElement.style.left = `${x}px`;
+      nameElement.style.top = `${y}px`;
+    }
+
+    // Set initial random position
+    moveRandomly();
+
+    // Move the name every 1.5 seconds
+    setInterval(moveRandomly, 1500);
+  </script>
 </body>
 </html>
