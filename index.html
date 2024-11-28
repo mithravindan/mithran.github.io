@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Name</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mithran's Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: blue;
+      overflow: hidden;
+    }
+
+    #name {
+      position: absolute;
+      font-size: 48px;
+      font-weight: bold;
+      color: red;
+    }
+
+    @keyframes dvdMove {
+      0% {
+        top: 0;
+        left: 0;
+      }
+      25% {
+        top: 0;
+        left: calc(100% - 150px);
+      }
+      50% {
+        top: calc(100% - 50px);
+        left: calc(100% - 150px);
+      }
+      75% {
+        top: calc(100% - 50px);
+        left: 0;
+      }
+      100% {
+        top: 0;
+        left: 0;
+      }
+    }
+
+    #name {
+      animation: dvdMove 5s infinite linear;
+    }
+  </style>
 </head>
 <body>
-    <h1>Mithran P</h1>
+  <div id="name">Mithran</div>
 </body>
 </html>
